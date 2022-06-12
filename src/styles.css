@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Gothic&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.lego {
+  font-family: "League Gothic", sans-serif;
+  font-size: xx-large;
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  text-align: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.8fr 2.5fr;
+  grid-template-areas:
+    "nav nav"
+    "content1 content2";
+  grid-gap: 0.2rem;
+}
+
+#btn1 {
+  display: inline;
+}
+
+nav {
+  background-color: darkgoldenrod;
+  grid-area: nav;
+}
+
+#content1 {
+  background-color: silver;
+  grid-area: content1;
+}
+
+#content2 {
+  background-color: darkslategrey;
+  grid-area: content2;
+}
+
+#urldata {
+  font-family: sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.custom-field {
+  position: relative;
+  font-size: 14px;
+  border-top: 20px solid transparent;
+  margin-bottom: 5px;
+  --field-padding: 12px;
+}
+
+.custom-field input {
+  border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #f2f2f2;
+  padding: var(--field-padding);
+  border-radius: 3px;
+  width: 250px;
+  outline: none;
+  font-size: 14px;
+}
+
+.custom-field .placeholder {
+  position: absolute;
+  left: var(--field-padding);
+  width: calc(100% - (var(--field-padding) * 2));
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  top: 22px;
+  line-height: 100%;
+  transform: translateY(-50%);
+  color: #aaa;
+  transition: top 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+}
+
+.custom-field input.dirty + .placeholder,
+.custom-field input:focus + .placeholder,
+.custom-field input:not(:placeholder-shown) + .placeholder {
+  top: -10px;
+  font-size: 10px;
+  color: #222;
+}
+
+.custom-field.two input {
+  border-radius: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background: linear-gradient(90deg, #222, #222) center bottom/0 0.15em
+      no-repeat,
+    linear-gradient(90deg, #ccc, #ccc) left bottom/100% 0.15em no-repeat,
+    linear-gradient(90deg, #fafafa, #fafafa) left bottom/100% no-repeat;
+  transition: background-size 0.3s ease;
+}
+
+.custom-field.two input.dirty,
+.custom-field.two input:not(:placeholder-shown),
+.custom-field.two input:focus {
+  background-size: 100% 0.15em, 100% 0.1em, 100%;
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 0.8fr 0.8fr;
+    grid-template-areas:
+      "nav"
+      "content1"
+      "content2";
+  }
+}
